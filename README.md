@@ -49,6 +49,27 @@ onFormSubmit trigger fires
 Clean, single-row-per-challan dataset + full remarks audit trail
 ```
 
+### Step-by-step example
+
+**1. A new challan is submitted through the form**, creating the first row for that Challan No.
+
+![New challan submission](screenshots/1-new-submission.png)
+
+**2. To update the same challan later**, the form is submitted again with the same Challan No and only the new/changed fields filled in.
+
+![Update submitted via form](screenshots/2-update-form.png)
+![Second row appears in the sheet](screenshots/2-update-sheet-row.png)
+
+**3. For a brief moment, both rows exist side by side** — the original and the new update — before the script processes them.
+
+![Both records before merge](screenshots/3-before-merge.png)
+
+**4. The Apps Script trigger merges the two rows into one**, updating only the changed fields, logging remarks history, and removing the duplicate row.
+
+![Single merged record after processing](screenshots/4-after-merge.png)
+
+*(Note: sample data shown above uses placeholder/dummy values only — no real business or customer information.)*
+
 ## Tech Stack
 
 - **Google Forms** — data entry interface for all users
